@@ -5,6 +5,11 @@ createApp({
         return {
             newMessage: '',
             activeContact: 0,
+            newReceivedMessage: {
+                date: '',
+                message: 'Ok.',
+                status: 'received'
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -199,6 +204,15 @@ createApp({
             this.newMessage = ''
 
             setTimeout(this.recivedMessage, 1000);
+        },
+        
+        //Messaggio automatico di risposta
+        recivedMessage() {
+            const newRecivedMessage = { ...this.newReceivedMessage };
+            const newDate = new Date();
+            const now = [newDate.getHours(), (newDate.getMinutes() < 10 ? '0' : '') + newDate.getMinutes(), newDate.getSeconds()].join(':');
+            newRecivedMessage.date = now;
+            this.contacts[this.activeContact].messages.push(newRecivedMessage)
         }
     }
 }).mount('#app')
