@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            newMessage: '',
             activeContact: 0,
             contacts: [
                 {
@@ -172,14 +173,33 @@ createApp({
     methods: {
         splitDate(element, i) {
             const time = element.date.split(' ').pop();
-            let no_sec_array = time.split(':');
-            no_sec_array.pop();
-            const no_sec_time = no_sec_array.join(':')
+            let noSecArray = time.split(':');
+            noSecArray.pop();
+            const noSecTime = noSecArray.join(':')
 
-            return no_sec_time
+            return noSecTime
         },
+
+        //Selezione chat
         selectChat(i) {
             this.activeContact = i
+        },
+
+        //Invio nuovo messaggio
+        sendMessage(i) {
+            const newMessageDate = new Date();
+            const now = [newMessageDate.getHours(), (newMessageDate.getMinutes() < 10 ? '0' : '') + newMessageDate.getMinutes(), newMessageDate.getSeconds()].join(':');
+            const newMessage = {
+                date: now,
+                message: this.newMessage,
+                status: 'sent'
+            };
+
+            this.contacts[i].messages.push(newMessage);
+            this.newMessage = ''
+
+            setTimeout(this.recivedMessage, 1000);
         }
     }
 }).mount('#app')
+
