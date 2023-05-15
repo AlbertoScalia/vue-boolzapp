@@ -66,13 +66,13 @@
                                     {{contact.name}}
                                 </span>
                                 <span class="last_message_text">
-                                    Ultimo messaggio inviato
+                                    {{contact.messages[lastMessage(index)].message}}
                                 </span>
                             </div>
                         </div>
                         <div class="chat_preview_right">
                             <div class="last_message_time">
-                                12:00
+                                {{splitDate(contact.messages[lastMessage(index)], index)}}
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                                 {{contacts[activeContact].name}}
                             </span>
                             <span class="last_access">
-                                Ultimo accesso oggi alle ore 12:00
+                                Ultimo accesso oggi alle ore...
                             </span>
                         </div>
                     </div>

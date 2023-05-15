@@ -6,6 +6,7 @@ createApp({
             newMessage: '',
             activeContact: 0,
             resultedContacts: '',
+            show: false,
             dropdownShow: false,
             currentMessage: null,
             newReceivedMessage: {
@@ -236,6 +237,14 @@ createApp({
         deleteMessage(i) {
             const thisMessage = this.contacts[this.activeContact].messages[i]
             this.contacts[this.activeContact].messages.pop(thisMessage)
+        },
+
+        //Per mostrare in lista l'ultimo messaggio della rispettiva chat
+        lastMessage(index) {
+            const messageArray = this.contacts[index].messages
+            const lastMessageIndex = messageArray.length - 1;
+
+            return lastMessageIndex
         }
 
     }
