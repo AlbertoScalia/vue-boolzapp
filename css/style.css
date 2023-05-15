@@ -120,10 +120,6 @@ span.enable {
     overflow-wrap: break-word;
 }
 
-.dropdown-icon {
-    visibility: hidden;
-}
-
 .dropdown-icon,
 .span_date {
     font-size: 0.45rem;
@@ -142,4 +138,42 @@ span.enable {
 .chat_input i {
     padding: 0 1rem;
     color: #6c7375;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.dropdown_delete {
+    width: 13px;
+    height: 13px;
+}
+
+.sent .dropdown_menu {
+    top: 100%;
+    right: 0;
+    text-align: end;
+    background-color: white;
+    border-radius: 0.2rem;
+    box-shadow: 0px 2px 2px rgba(171, 171, 171, 0.742);
+    z-index: 10000;
+}
+
+.received .dropdown_menu {
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border-radius: 0.2rem;
+    box-shadow: 0px 2px 2px rgba(171, 171, 171, 0.742);
+    z-index: 10000;
+}
+
+.dropdown_menu li {
+    width: 100px;
+    padding: 0.4rem;
+    cursor: pointer;
 }

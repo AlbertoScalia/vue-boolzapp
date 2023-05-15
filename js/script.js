@@ -6,6 +6,8 @@ createApp({
             newMessage: '',
             activeContact: 0,
             resultedContacts: '',
+            dropdownShow: false,
+            currentMessage: null,
             newReceivedMessage: {
                 date: '',
                 message: 'Ok.',
@@ -214,6 +216,20 @@ createApp({
             const now = [newDate.getHours(), (newDate.getMinutes() < 10 ? '0' : '') + newDate.getMinutes(), newDate.getSeconds()].join(':');
             newReceivedMessage.date = now;
             this.contacts[this.activeContact].messages.push(newReceivedMessage)
+        },
+
+        //Selezione messaggio
+        selectMessage(i) {
+            this.currentMessage = i
+        },
+
+        //Per aprire lo showdown
+        showDropdown() {
+            if (this.dropdownShow === false) {
+                this.dropdownShow = true;
+            } else if (this.dropdownShow === true) {
+                this.dropdownShow = false
+            }
         }
     }
 }).mount('#app')
