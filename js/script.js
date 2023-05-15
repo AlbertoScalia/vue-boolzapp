@@ -230,7 +230,14 @@ createApp({
             } else if (this.dropdownShow === true) {
                 this.dropdownShow = false
             }
+        },
+
+        //Per cancellare i messaggi
+        deleteMessage(i) {
+            const thisMessage = this.contacts[this.activeContact].messages[i]
+            this.contacts[this.activeContact].messages.pop(thisMessage)
         }
+
     }
 }).mount('#app')
 

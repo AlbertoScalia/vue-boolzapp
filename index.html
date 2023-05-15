@@ -116,7 +116,7 @@
                                 <ul class="dropdown_menu list-unstyled position-absolute"
                                     :class="currentMessage === index && dropdownShow === true ? 'show' : 'hidden'">
                                     <li>Message info</li>
-                                    <li>Delete message</li>
+                                    <li @click="deleteMessage(index)">Delete message</li>
                                 </ul>
                             </div>
                             <span class="span_date text-end">
